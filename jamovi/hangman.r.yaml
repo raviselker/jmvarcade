@@ -1,0 +1,11 @@
+---
+name:  hangman
+title: Hangman
+jrs:   "1.0"
+
+items:
+    - name:  text
+      title: Hangman
+      type:  Preformatted
+      
+...

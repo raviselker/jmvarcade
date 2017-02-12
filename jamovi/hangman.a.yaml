@@ -1,0 +1,16 @@
+---
+name:  hangman
+title: Hangman
+menuGroup: jmvgames
+version: '1.0.0'
+jas: '1.0'
+
+options:
+    - name: data
+      type: Data
+
+    - name: letters
+      title: Letters
+      type: Variable
+      
+...
