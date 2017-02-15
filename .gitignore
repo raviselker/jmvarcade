@@ -1,0 +1,8 @@
+
+build/
+.Rproj.user
+.DS_Store
+npm-debug.log
+
+*.jmo
+
