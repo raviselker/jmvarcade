@@ -1,6 +1,7 @@
-title: Hangman
-name: hangman
+title: Blackjack
+name: blackjack
 jus: '2.0'
+stage: 0
 children:
   - type: VariableSupplier
     persistentItems: false
@@ -9,8 +10,8 @@ children:
       - type: TargetLayoutBox
         children:
           - type: VariablesListBox
-            name: letters
-            label: Letters
+            name: cmds
+            label: Commands
             maxItemCount: 1
             showColumnHeaders: false
             fullRowSelect: true

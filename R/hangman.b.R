@@ -18,7 +18,7 @@ hangmanClass <- R6::R6Class(
             results <- self$results$get('text')
             
             path <- system.file("text/", package = "jmvgames")
-            
+
             stages <- read.csv(paste0(path, "stages.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
             words <- read.csv(paste0(path, "words.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
             win <- read.csv(paste0(path, "win.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
@@ -33,8 +33,8 @@ hangmanClass <- R6::R6Class(
             
             word <- wordTemp$content
             
-            intro1 <- private$.scrollify("To play this game you first need to drag an empty variable to the \"Letters\" box", 40)
-            intro2 <- private$.scrollify(paste0("Good job! Now, it\'s time to go back to the spreadheet editor and start typing letters in column \"", var ,"\". \n\nHave fun!"), 40)
+            intro1 <- scrollify("To play this game you first need to drag an empty variable to the \"Letters\" box", 40)
+            intro2 <- scrollify(paste0("Good job! Now, it\'s time to go back to the spreadheet editor and start typing letters in column \"", var ,"\". \n\nHave fun!"), 40)
             
             stage0 <- unlist(strsplit(stages[1], split = "\n"))
             word0 <- paste0(rep("_", nchar(word)), collapse = " ")
@@ -42,12 +42,12 @@ hangmanClass <- R6::R6Class(
             if (is.null(var)) {
                 
                 intro <- unlist(strsplit(intro1, split = "\n"))
-                results$content <- private$.combine(list(c(stage0, "", word0), intro), spaces = 10)
+                results$content <- combine(list(c(stage0, "", word0), intro), spaces = 10)
                 
             } else if (all(is.na(self$data[[var]]))) {
                 
                 intro <- unlist(strsplit(intro2, split = "\n"))
-                results$content <- private$.combine(list(c(stage0, "", word0), intro), spaces = 10)
+                results$content <- combine(list(c(stage0, "", word0), intro), spaces = 10)
                 
             } else {
                 
@@ -79,60 +79,29 @@ hangmanClass <- R6::R6Class(
                     stage <- unlist(strsplit(stages[8], split = "\n"))
                     lostText <- unlist(strsplit(lost, split = "\n"))
                     
-                    results$content <- private$.combine(list(c(stage, "", wordShown), lostText), spaces = 10)
+                    results$content <- combine(list(c(stage, "", wordShown), lostText), spaces = 10)
                     
                 } else if (WIN) {
                     for (i in 1:12) {
                         stage <- unlist(strsplit(stages[1], split = "\n"))
                         winText <- unlist(strsplit(win[(i %% 2) + 1], split = "\n"))
                         
-                        results$content <- private$.combine(list(c(stage, "", wordShown), winText), spaces = 10)
+                        results$content <- combine(list(c(stage, "", wordShown), winText), spaces = 10)
                         private$.checkpoint()
                         Sys.sleep(0.4)
                     }
                 } else {
                     stage <- unlist(strsplit(stages[mistakes + 1], split = "\n"))
-                    scoreScroll <- unlist(strsplit(private$.scrollify(score, 40), split = "\n"))
+                    scoreScroll <- unlist(strsplit(scrollify(score, 40), split = "\n"))
                     
-                    results$content <- private$.combine(list(c(stage, "", wordShown), scoreScroll), spaces = 10)
+                    results$content <- combine(list(c(stage, "", wordShown), scoreScroll), spaces = 10)
                 }
             }
-        },
-        .scrollify = function (text, sentenceLength) {
+        }),
+    public=list(
+        asSource=function() {
             
-            sentences <- strwrap(text, sentenceLength)
-            maxSentence <- max(nchar(sentences))
+            paste0("This module does not support syntax mode.")
             
-            sentences <-  sprintf(paste0("%-", sentenceLength,"s"), sentences)
-            
-            scroll <- c()
-            
-            scroll[1] <- paste(" ", paste0(rep("_", sentenceLength + 5), collapse = ""), collapse = "")
-            scroll[2] <- paste("/\\", paste0(rep(" ", sentenceLength + 3), collapse = ""), "\\", collapse = "")
-            scroll[3] <- paste("\\_|", paste0(rep(" ", sentenceLength + 2), collapse = ""), "|", collapse = "")
-            
-            for (i in 1:length(sentences))
-                scroll[length(scroll) + 1] <- paste0("  |  ", sentences[[i]], "  |", collapse = "")
-            
-            scroll[length(scroll) + 1] <- paste0("  |  ", paste(rep(" ", sentenceLength), collapse = ""), "  |", collapse = "")
-            scroll[length(scroll) + 1] <- paste0("  |  ", paste(rep("_", sentenceLength + 2), collapse = ""), "|_", collapse = "")
-            scroll[length(scroll) + 1] <- paste0("  \\_/", paste(rep("_", sentenceLength + 4), collapse = ""), "/", collapse = "")
-            
-            return(paste0(scroll, collapse="\n"))
-        },
-        .combine = function (texts, spaces) {
-            
-            lengths <- sapply(texts, length)
-            
-            for (i in 1:length(texts)) {
-                texts[[i]] <- sprintf(paste0("%-", max(nchar(texts[[i]])),"s"), texts[[i]])
-                texts[[i]][(1:max(lengths))[-(1:lengths[i])]] <- paste0(rep(" ", max(nchar(texts[[i]]))), collapse = "")
-            }
-            
-            lines <- c()
-            for (i in 1:max(lengths))
-                lines[i] <- paste0(sapply(texts, function (x) return(x[[i]])), collapse = paste0(rep(" ", spaces), collapse = ""))
-            
-            return(paste0(lines, collapse="\n"))
-        })
+        }) 
 )

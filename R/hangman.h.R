@@ -42,7 +42,7 @@ hangmanResults <- R6::R6Class(
             private$..text <- jmvcore::Preformatted$new(
                 options=options,
                 name="text",
-                title="Hangman")
+                title="")
             self$add(private$..text)}))
 
 #' @importFrom jmvcore Analysis
@@ -62,7 +62,8 @@ hangmanBase <- R6::R6Class(
                 datasetId = datasetId,
                 analysisId = analysisId,
                 revision = revision,
-                pause = NULL)
+                pause = NULL,
+                completeWhenFilled = FALSE)
         }))
 
 #' Hangman
@@ -70,6 +71,11 @@ hangmanBase <- R6::R6Class(
 #' 
 #' @param data .
 #' @param letters .
+#' @return A results object containing:
+#' \tabular{llllll}{
+#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#' }
+#'
 #' @export
 hangman <- function(
     data,
@@ -86,7 +92,6 @@ hangman <- function(
         data = data)
 
     analysis$run()
-    analysis$render()
 
-    analysis
+    analysis$results
 }

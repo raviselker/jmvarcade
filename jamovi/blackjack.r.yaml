@@ -1,0 +1,23 @@
+---
+name:  blackjack
+title: Blackjack
+jrs:   "1.0"
+
+items:
+    - name:  instructions
+      title: ''
+      type:  Preformatted
+
+    - name:  player
+      title: Player
+      type:  Preformatted
+      
+    - name:  dealer
+      title: Dealer
+      type:  Preformatted
+      
+    - name:  cards
+      type:  Property
+      description: the order of the cards
+      
+...

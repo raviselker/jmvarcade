@@ -1,19 +1,27 @@
 ---
-title: jmvgames
+title: jamovi Games
 name: jmvgames
 version: 0.1.0
 jms: '1.0'
 authors:
   - Ravi Selker
 maintainer: Ravi Selker <selker.ravi@gmail.com>
-date: '2017-15-02'
+date: '2017-06-02'
 type: R
-description: 'Play simple games, such as hangman, in jamovi'
+description: >-
+  There's a time for work and there's a time for play. With jamovi Games you
+  can  leave all you sorrows behind and relax for a while. Do you have what it 
+  takes to be the next covfefe?
 analyses:
   - title: Hangman
     name: hangman
     ns: jmvgames
-    menuGroup: jmvgames
+    menuGroup: Games
     menuTitle: Hangman
+  - title: Blackjack
+    name: blackjack
+    ns: jmvgames
+    menuGroup: Games
+    menuTitle: Blackjack
 
 ...

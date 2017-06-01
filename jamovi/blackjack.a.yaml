@@ -1,6 +1,6 @@
 ---
-name:  hangman
-title: Hangman
+name:  blackjack
+title: Blackjack
 menuGroup: Games
 version: '1.0.0'
 jas: '1.0'
@@ -9,8 +9,7 @@ options:
     - name: data
       type: Data
 
-    - name: letters
-      title: Letters
+    - name: cmds
+      title: Commands
       type: Variable
-      
 ...
