@@ -10,7 +10,8 @@ date: '2017-06-02'
 type: R
 description: >-
   There's a time for work and there's a time for play. With jamovi Games you
-  can  leave all you sorrows behind and relax for a while. Do you have what it 
+  can  leave all you sorrows behind and relax for a while. You can already play 
+  hangman and blackjack, and there are more games to come! Do you have what it 
   takes to be the next covfefe?
 analyses:
   - title: Hangman

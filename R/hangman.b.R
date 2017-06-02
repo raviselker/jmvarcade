@@ -17,12 +17,12 @@ hangmanClass <- R6::R6Class(
             
             results <- self$results$get('text')
             
-            path <- system.file("text/", package = "jmvgames")
+            path <- system.file("text", package = "jmvgames")
 
-            stages <- read.csv(paste0(path, "stages.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
-            words <- read.csv(paste0(path, "words.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
-            win <- read.csv(paste0(path, "win.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
-            lost <- read.csv(paste0(path, "lost.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
+            stages <- read.csv(paste0(path, "/stages.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
+            words <- read.csv(paste0(path, "/words.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
+            win <- read.csv(paste0(path, "/win.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
+            lost <- read.csv(paste0(path, "/lost.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
             
             var <- self$options$letters
             

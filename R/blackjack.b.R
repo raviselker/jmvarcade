@@ -11,14 +11,14 @@ blackjackClass <- R6::R6Class(
             dealer <- self$results$dealer
             instructions <- self$results$instructions
             
-            path <- system.file("text/", package = "jmvgames")
-            loadedCards <- read.csv(paste0(path, "cards.csv"), header = FALSE, stringsAsFactors = FALSE)
+            path <- system.file("text", package = "jmvgames")
+            loadedCards <- read.csv(paste0(path, "/cards.csv"), header = FALSE, stringsAsFactors = FALSE)
             templateCard <- loadedCards[1,1]
             flippedCard <- unlist(strsplit(loadedCards[2,1], "\n"))
             
-            win <- read.csv(paste0(path, "win.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
-            lost <- read.csv(paste0(path, "lost.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
-            tie <- read.csv(paste0(path, "tie.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
+            win <- read.csv(paste0(path, "/win.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
+            lost <- read.csv(paste0(path, "/lost.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
+            tie <- read.csv(paste0(path, "/tie.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
             
             cmdsName <- self$options$cmds
             
