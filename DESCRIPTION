@@ -1,10 +1,10 @@
-Package: jmvgames
+Package: jmvarcade
 Type: Package
 Title: Games
 Version: 0.1.0
 Author: Ravi Selker
 Maintainer: Ravi Selker <selker.ravi@gmail.com>
-Description: There's a time for work and there's a time for play. With jamovi Games you can  leave all you sorrows behind and relax for a while. Do you have what it takes to be the next covfefe?
+Description:   There's a time for work and there's a time for play. With jamovi Arcade you can  leave all you sorrows behind and relax for a while. Play games such as hangman or blackjack, and more to come! Do you have what it takes to be the next covfefe?
 License: GPL3
 Encoding: UTF-8
 LazyData: true
