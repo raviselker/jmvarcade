@@ -11,7 +11,7 @@ blackjackClass <- R6::R6Class(
             dealer <- self$results$dealer
             instructions <- self$results$instructions
             
-            path <- system.file("text", package = "jmvgames")
+            path <- system.file("text", package = "jmvarcade")
             loadedCards <- read.csv(file.path(path, "cards.csv"), header = FALSE, stringsAsFactors = FALSE, encoding = "UTF-8")
             templateCard <- loadedCards[1,1]
             flippedCard <- unlist(strsplit(loadedCards[2,1], "\n"))

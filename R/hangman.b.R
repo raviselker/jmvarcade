@@ -17,7 +17,7 @@ hangmanClass <- R6::R6Class(
             
             results <- self$results$get('text')
             
-            path <- system.file("text", package = "jmvgames")
+            path <- system.file("text", package = "jmvarcade")
 
             stages <- read.csv(file.path(path, "stages.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
             words <- read.csv(file.path(path, "words.csv"), header = FALSE, stringsAsFactors = FALSE)[,1]
