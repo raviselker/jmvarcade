@@ -2,8 +2,8 @@
 name:  hangman
 title: Hangman
 menuGroup: Arcade
-version: '1.0.0'
-jas: '1.0'
+version: '1.1.0'
+jas: '1.2'
 
 options:
     - name: data

@@ -28,14 +28,14 @@ blackjackClass <- R6::R6Class(
             if (is.null(cmdsName)) {
                 
                 instructions$content <- scrollify("To play this game you first need to drag an empty variable to the \"Commands\" box", 40)
-                player$content <- combine(list(flippedCard, flippedCard),spaces=0)
-                dealer$content <- combine(list(flippedCard, flippedCard),spaces=0)
+                player$content <- combine(list(flippedCard, flippedCard), spaces=0)
+                dealer$content <- combine(list(flippedCard, flippedCard), spaces=0)
             
             } else if (length(cmds) == 0 || tolower(cmds[1]) != "start") {
                 
                 instructions$content <- scrollify(paste0("Good job! Now, it\'s time to go back to the spreadheet editor. Type \"start\" in the first row of  \"", cmdsName ,"\" to start the game."), 40)
-                player$content <- combine(list(flippedCard, flippedCard),spaces=0)
-                dealer$content <- combine(list(flippedCard, flippedCard),spaces=0)
+                player$content <- combine(list(flippedCard, flippedCard), spaces=0)
+                dealer$content <- combine(list(flippedCard, flippedCard), spaces=0)
                 
             } else {
                 

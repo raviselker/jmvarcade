@@ -11,6 +11,7 @@ items:
     - name:  player
       title: Player
       type:  Preformatted
+      clearWith: []
       
     - name:  dealer
       title: Dealer
